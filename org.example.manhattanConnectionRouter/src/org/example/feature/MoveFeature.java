@@ -6,6 +6,10 @@ import org.eclipse.graphiti.features.context.IMoveShapeContext;
 import org.eclipse.graphiti.features.impl.DefaultMoveShapeFeature;
 import org.eclipse.graphiti.mm.pictograms.Shape;
 
+/**
+ * @author Jack Chi
+ *
+ */
 public class MoveFeature extends DefaultMoveShapeFeature {
 
 	public MoveFeature(IFeatureProvider fp) {
