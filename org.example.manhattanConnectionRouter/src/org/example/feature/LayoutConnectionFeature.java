@@ -12,12 +12,12 @@ import org.eclipse.graphiti.mm.pictograms.Connection;
  *
  *	
  */
-public class ExampleLayoutConnectionFeature extends
+public class LayoutConnectionFeature extends
 		DefaultLayoutBPMNConnectionFeature {
 
 	boolean hasDoneChanges = false;
 
-	public ExampleLayoutConnectionFeature(IFeatureProvider fp) {
+	public LayoutConnectionFeature(IFeatureProvider fp) {
 		super(fp);
 	}
 
