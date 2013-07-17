@@ -1,10 +1,10 @@
 package org.example.feature;
 
-import org.eclipse.bpmn2.modeler.core.features.DefaultLayoutBPMNConnectionFeature;
 import org.eclipse.bpmn2.modeler.core.features.IConnectionRouter;
 import org.eclipse.bpmn2.modeler.core.features.ManhattanConnectionRouter;
 import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.context.ILayoutContext;
+import org.eclipse.graphiti.features.impl.AbstractLayoutFeature;
 import org.eclipse.graphiti.mm.pictograms.Connection;
 
 /**
@@ -13,7 +13,7 @@ import org.eclipse.graphiti.mm.pictograms.Connection;
  *	
  */
 public class LayoutConnectionFeature extends
-		DefaultLayoutBPMNConnectionFeature {
+		AbstractLayoutFeature {
 
 	boolean hasDoneChanges = false;
 
