@@ -1,7 +1,7 @@
 package org.example.feature;
 
 import org.eclipse.bpmn2.modeler.core.features.IConnectionRouter;
-import org.eclipse.bpmn2.modeler.core.features.ManhattanConnectionRouter;
+//import org.eclipse.bpmn2.modeler.core.features.ManhattanConnectionRouter;
 import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.context.ILayoutContext;
 import org.eclipse.graphiti.features.impl.AbstractLayoutFeature;
@@ -39,7 +39,7 @@ public class LayoutConnectionFeature extends
 			Connection connection = (Connection) context.getPictogramElement();
 			IFeatureProvider fp = getFeatureProvider();
 			IConnectionRouter router = null;
-			router = new ManhattanConnectionRouter(fp);
+			router = new ExtendedManhattanConnectionRouter(fp);
 			if (router != null) {
 				hasDoneChanges = router.route(connection);
 				router.dispose();

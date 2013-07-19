@@ -25,7 +25,7 @@ public class MoveFeature extends DefaultMoveShapeFeature {
 	protected void postMoveShape(IMoveShapeContext context) {
 		super.postMoveShape(context);
 		Shape shape = context.getShape();
-		ConnectionFeatureContainer.updateConnections(getFeatureProvider(), shape);
+		ConnectionFeatureContainer.updateConnections(getFeatureProvider(), getDiagram());
 	}
 
 

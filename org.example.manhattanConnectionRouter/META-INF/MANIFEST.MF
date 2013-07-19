@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.graphiti;bundle-version="0.10.0",
- org.eclipse.bpmn2.modeler.core;bundle-version="0.2.6"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+ org.eclipse.bpmn2.modeler.core;bundle-version="0.2.6",
+ org.eclipse.bpmn2;bundle-version="0.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.example.feature
