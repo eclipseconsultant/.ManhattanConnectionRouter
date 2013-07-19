@@ -4,7 +4,6 @@ import org.eclipse.bpmn2.modeler.core.features.ConnectionFeatureContainer;
 import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.context.IMoveShapeContext;
 import org.eclipse.graphiti.features.impl.DefaultMoveShapeFeature;
-import org.eclipse.graphiti.mm.pictograms.Shape;
 
 /**
  * @author Jack Chi
@@ -24,7 +23,6 @@ public class MoveFeature extends DefaultMoveShapeFeature {
 	@Override
 	protected void postMoveShape(IMoveShapeContext context) {
 		super.postMoveShape(context);
-		Shape shape = context.getShape();
 		ConnectionFeatureContainer.updateConnections(getFeatureProvider(), getDiagram());
 	}
 
