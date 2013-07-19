@@ -23,9 +23,10 @@ public class LayoutConnectionFeature extends
 
 	@Override
 	public boolean canLayout(ILayoutContext context) {
+		return (context.getPictogramElement() instanceof Connection);
 		// Connection connection = (Connection) context.getPictogramElement();
 		// implement your logic here
-		return true;
+//		return true;
 	}
 
 	@Override
