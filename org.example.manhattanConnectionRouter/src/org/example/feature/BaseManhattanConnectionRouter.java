@@ -180,35 +180,35 @@ public class BaseManhattanConnectionRouter extends BendpointConnectionRouter {
 				r.optimize();
 				for (int i=0; i<r.size()-1; ++i) {
 					if (GraphicsUtil.intersectsLine(source, r.get(i), r.get(i+1))) {
-						r.rank = rank;
+						r.setRank(rank);
 						break;
 					}
 					if (GraphicsUtil.intersectsLine(target, r.get(i), r.get(i+1))) {
-						r.rank = rank;
+						r.setRank(rank);
 						break;
 					}
 					if (GraphicsUtil.isSlanted(r.get(i),r.get(i+1))) {
-						r.rank = rank;
+						r.setRank(rank);
 						break;
 					}
 				}
 				AnchorLocation al = AnchorUtil.findNearestBoundaryAnchor(source, r.get(0)).locationType;
 				if (al==AnchorLocation.LEFT || al==AnchorLocation.RIGHT) {
 					if (Math.abs(r.get(0).getX() - r.get(1).getX()) <= delta)
-						r.rank = rank/2;
+						r.setRank(rank/2);
 				}
 				else {
 					if (Math.abs(r.get(0).getY() - r.get(1).getY()) <= delta)
-						r.rank = rank/2;
+						r.setRank(rank/2);
 				}
 				al = AnchorUtil.findNearestBoundaryAnchor(target, r.get( r.size()-1 )).locationType;
 				if (al==AnchorLocation.LEFT || al==AnchorLocation.RIGHT) {
 					if (Math.abs(r.get( r.size()-2 ).getX() - r.get( r.size()-1 ).getX()) <= delta)
-						r.rank = rank/2;
+						r.setRank(rank/2);
 				}
 				else {
 					if (Math.abs(r.get( r.size()-2 ).getY() - r.get( r.size()-1 ).getY()) <= delta)
-						r.rank = rank/2;
+						r.setRank(rank/2);
 				}
 			}
 
@@ -216,10 +216,10 @@ public class BaseManhattanConnectionRouter extends BendpointConnectionRouter {
 			// Connection crossings only participate in determining the best route,
 			// we don't actually try to correct a route crossing a connection.
 			for (ConnectionRoute r : allRoutes) {
-				if (r.points.size()>1) {
-					Point p1 = r.points.get(0);
-					for (int i=1; i<r.points.size(); ++i) {
-						Point p2 = r.points.get(i);
+				if (r.getPoints().size()>1) {
+					Point p1 = r.getPoints().get(0);
+					for (int i=1; i<r.getPoints().size(); ++i) {
+						Point p2 = r.getPoints().get(i);
 						List<Connection> crossings = findCrossings(p1, p2);
 						for (Connection c : crossings) {
 							if (c!=this.connection)
@@ -256,18 +256,18 @@ public class BaseManhattanConnectionRouter extends BendpointConnectionRouter {
 			List<Point> departure = calculateDeparture(source, start, middle);
 			List<Point> approach = calculateApproach(middle, target, end);
 
-			route.points.addAll(departure);
+			route.getPoints().addAll(departure);
 			calculateEnroute(route, departure.get(departure.size()-1), middle, orientation);
-			route.points.add(middle);
+			route.getPoints().add(middle);
 			calculateEnroute(route, middle,approach.get(0),orientation);
-			route.points.addAll(approach);
+			route.getPoints().addAll(approach);
 		}
 		else {
 			List<Point> departure = calculateDeparture(source, start, end);
 			List<Point> approach = calculateApproach(start, target, end);
-			route.points.addAll(departure);
+			route.getPoints().addAll(departure);
 			calculateEnroute(route, departure.get(departure.size()-1), approach.get(0), orientation);
-			route.points.addAll(approach);
+			route.getPoints().addAll(approach);
 		}
 		
 		if (route.isValid())
